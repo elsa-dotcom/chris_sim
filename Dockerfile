@@ -1,11 +1,13 @@
 FROM ubuntu:22.04
 
 ENV DEBIAN_FRONTEND=noninteractive
+ENV RENPY_VERSION=8.2.1
 
 RUN apt-get update && apt-get install -y \
     python3 \
     python3-dev \
     python3-pip \
+    wget \
     libx11-6 \
     libxext6 \
     libxrender1 \
@@ -27,10 +29,11 @@ RUN apt-get update && apt-get install -y \
 
 WORKDIR /opt
 
-# Copy Ren'Py SDK
-COPY renpy /opt/renpy
+RUN wget https://www.renpy.org/dl/${RENPY_VERSION}/renpy-${RENPY_VERSION}-sdk.tar.bz2 \
+ && tar -xjf renpy-${RENPY_VERSION}-sdk.tar.bz2 \
+ && rm renpy-${RENPY_VERSION}-sdk.tar.bz2 \
+ && mv renpy-${RENPY_VERSION}-sdk renpy
 
-# Copy your game
 COPY game /opt/game
 
 ENV SDL_VIDEODRIVER=x11
