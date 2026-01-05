@@ -1,0 +1,18 @@
+﻿I'm sorry, but errors were detected in your script. Please correct the
+errors listed below, and try again.
+
+
+File "game/script.rpy", line 1514: Line is followed by a block, despite not being a menu choice. Did you forget a colon at the end of the line?
+    "Well... I love cooking and I love eating."
+                                               ^
+
+File "game/script.rpy", line 1536: reached end of line when expecting ':'.
+    if firstcp == "verygood"
+                            ^
+
+File "game/script.rpy", line 1575: expected statement.
+    else:
+        ^
+
+Ren'Py Version: Ren'Py 7.0.0.196
+Sun Jul 01 18:19:24 2018
